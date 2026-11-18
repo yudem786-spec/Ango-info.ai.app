@@ -372,7 +372,16 @@
       <strong>◉</strong>Perfil
     </button>
   </nav>
-
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then(() => console.log("ANGO INFO AI: offline ativo"))
+        .catch((error) => console.error("Erro:", error));
+    });
+  }
+</script>
 </body>
   </html>
         
