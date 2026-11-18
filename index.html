@@ -1,1 +1,378 @@
 
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="ANGO INFO AI - O conhecimento de Angola na tua mão.">
+  <title>ANGO INFO AI</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #090909;
+      color: #fff;
+      min-height: 100vh;
+      padding-bottom: 90px;
+    }
+
+    :root {
+      --gold: #d6ad55;
+      --gold-light: #f4d58a;
+      --dark: #090909;
+      --card: #171717;
+      --muted: #999;
+    }
+
+    header {
+      padding: 23px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #252525;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: var(--gold);
+    }
+
+    .logo span {
+      color: white;
+    }
+
+    .ai-tag {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+    }
+
+    main {
+      max-width: 650px;
+      margin: auto;
+      padding: 24px 18px;
+    }
+
+    .welcome {
+      margin-top: 15px;
+      margin-bottom: 25px;
+    }
+
+    .welcome small {
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 11px;
+    }
+
+    .welcome h1 {
+      font-size: 30px;
+      line-height: 1.2;
+      margin: 13px 0;
+    }
+
+    .welcome h1 span {
+      color: var(--gold);
+    }
+
+    .welcome p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #292013, #15120d 65%, #101010);
+      border: 1px solid #5d4825;
+      border-radius: 18px;
+      padding: 23px;
+      margin-bottom: 30px;
+    }
+
+    .hero-label {
+      color: var(--gold-light);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+    }
+
+    .hero h2 {
+      font-size: 22px;
+      margin: 12px 0;
+    }
+
+    .hero p {
+      color: #c4bcae;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .hero button {
+      margin-top: 19px;
+      background: var(--gold);
+      border: none;
+      color: #111;
+      padding: 13px 19px;
+      border-radius: 9px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .section-title h2 {
+      font-size: 18px;
+    }
+
+    .section-title span {
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .category {
+      background: var(--card);
+      border: 1px solid #292929;
+      border-radius: 14px;
+      padding: 17px 14px;
+      min-height: 112px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .category:active {
+      border-color: var(--gold);
+      transform: scale(.98);
+    }
+
+    .category .emoji {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .category h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .category p {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .search-box {
+      background: #171717;
+      border: 1px solid #343434;
+      padding: 15px;
+      border-radius: 12px;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .search-box input {
+      flex: 1;
+      min-width: 0;
+      background: transparent;
+      color: white;
+      border: none;
+      outline: none;
+      font-size: 13px;
+    }
+
+    .search-box button {
+      background: var(--gold);
+      border: none;
+      border-radius: 8px;
+      padding: 9px 13px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .vip {
+      border: 1px solid #685127;
+      background: #17130c;
+      border-radius: 15px;
+      padding: 19px;
+      margin-bottom: 20px;
+    }
+
+    .vip h3 {
+      color: var(--gold-light);
+      margin-bottom: 9px;
+    }
+
+    .vip p {
+      color: #aaa;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #111;
+      border-top: 1px solid #303030;
+      display: flex;
+      justify-content: space-around;
+      padding: 13px 5px;
+      z-index: 10;
+    }
+
+    .bottom-nav button {
+      color: #999;
+      background: none;
+      border: none;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .bottom-nav button.active {
+      color: var(--gold);
+    }
+
+    .bottom-nav strong {
+      display: block;
+      font-size: 19px;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      font-size: 11px;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">ANGO <span>INFO</span></div>
+    <div class="ai-tag">✦ INTELIGÊNCIA AI</div>
+  </header>
+
+  <main>
+
+    <section class="welcome">
+      <small>SEJA BEM-VINDO AO ANGO INFO</small>
+      <h1>Angola na tua mão.<br><span>Conhecimento sem limites.</span></h1>
+      <p>Descobre, aprende e encontra respostas sobre Angola. Tudo num só lugar.</p>
+    </section>
+
+    <section class="hero">
+      <div class="hero-label">✦ ASSISTENTE INTELIGENTE</div>
+      <h2>Conheces Angola?</h2>
+      <p>Faz qualquer pergunta. O ANGO INFO AI está aqui para te ajudar a descobrir mais sobre o nosso país.</p>
+      <button onclick="alert('O assistente AI será ativado numa próxima etapa!')">
+        Conversar com ANGO AI →
+      </button>
+    </section>
+
+    <div class="section-title">
+      <h2>Explorar Angola</h2>
+      <span>Ver tudo →</span>
+    </div>
+
+    <section class="categories">
+
+      <div class="category" onclick="alert('História de Angola em breve!')">
+        <div class="emoji">🏛️</div>
+        <h3>História</h3>
+        <p>Conhece as nossas origens.</p>
+      </div>
+
+      <div class="category" onclick="alert('Províncias de Angola em breve!')">
+        <div class="emoji">🇦🇴</div>
+        <h3>Províncias</h3>
+        <p>Explora o território nacional.</p>
+      </div>
+
+      <div class="category" onclick="alert('Cultura angolana em breve!')">
+        <div class="emoji">🎭</div>
+        <h3>Cultura</h3>
+        <p>Tradições e identidade.</p>
+      </div>
+
+      <div class="category" onclick="alert('Economia de Angola em breve!')">
+        <div class="emoji">📊</div>
+        <h3>Economia</h3>
+        <p>Mercado e desenvolvimento.</p>
+      </div>
+
+      <div class="category" onclick="alert('Turismo em Angola em breve!')">
+        <div class="emoji">🌍</div>
+        <h3>Turismo</h3>
+        <p>Descobre lugares incríveis.</p>
+      </div>
+
+      <div class="category" onclick="alert('Oportunidades em breve!')">
+        <div class="emoji">💼</div>
+        <h3>Oportunidades</h3>
+        <p>Emprego, bolsas e formação.</p>
+      </div>
+
+    </section>
+
+    <div class="section-title">
+      <h2>Tem alguma dúvida?</h2>
+    </div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Pergunta qualquer coisa sobre Angola...">
+      <button onclick="alert('O chat será ligado em breve!')">Enviar</button>
+    </div>
+
+    <section class="vip">
+      <h3>✦ ANGO INFO VIP</h3>
+      <p>Prepara-te para desbloquear conteúdos exclusivos, ferramentas especiais e muito mais.</p>
+    </section>
+
+    <footer>
+      ANGO INFO AI © 2026<br>
+      Feito para Angola. 🇦🇴
+    </footer>
+
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="active" onclick="window.scrollTo(0,0)">
+      <strong>⌂</strong>Início
+    </button>
+    <button onclick="alert('Explorar em breve!')">
+      <strong>◈</strong>Explorar
+    </button>
+    <button onclick="alert('ANGO AI em breve!')">
+      <strong>✦</strong>ANGO AI
+    </button>
+    <button onclick="alert('Perfil em breve!')">
+      <strong>◉</strong>Perfil
+    </button>
+  </nav>
+
+</body>
+  </html>
+        
